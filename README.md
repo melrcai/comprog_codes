@@ -1,2 +1,2 @@
 ## 📝 Extra Notes
-- [Read the Rant](RANT.md)
+- [secret](RANT.md)
