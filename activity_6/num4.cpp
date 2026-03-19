@@ -5,14 +5,15 @@ using std::cin;
 int main() {
     
     int n;
-    int sum = 0; 
+    int product = 0; 
 
+    cout << "\n";
     cout << "Enter a number: ";
     cin >> n;
 
     for (int i = 0; i <= 10; i++) {
-       sum = n * i; 
-       cout << n << " x " << i << " = " << sum << "\n";
+       product = n * i; 
+       cout << n << " x " << i << " = " << product << "\n";
     }
     return 0;
 }

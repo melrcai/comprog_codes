@@ -11,7 +11,7 @@ int main() {
     
     int num1;
     int num2;
-
+    cout << "\n"; 
     cout << "Enter the first number: ";
     cin >> num1;
     cout << "Enter the second number: ";
