@@ -37,7 +37,7 @@ int main() {
         else if (total >= 240) grade = 'D';
         else grade = 'F';
 
-        cout << "\nTotal Points Earned: " << total << endl;
+        cout << "\nTotal Points Earned : " << total << endl;
         cout << "Grade: " << grade << endl << endl;
     }
 
