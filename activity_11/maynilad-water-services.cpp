@@ -11,12 +11,34 @@ using std::setprecision;
 using std::getline;
 using std::ws;
 
-int main() {
+void calculateBill(int type, double present, double previous) {
     const double RATE_RESIDENTIAL = 17.75;
     const double RATE_COMMERCIAL = 24.75;
     const double ENVIRONMENTAL_PCT = 0.20; 
     const double VAT_PCT = 0.12;            
 
+    double consumption = present - previous;
+    
+    double charge_rate = RATE_COMMERCIAL;
+    if (type == 1) {
+        charge_rate = RATE_RESIDENTIAL;
+    }
+    
+    double basic_charge = consumption * charge_rate;
+    double environmental_charge = basic_charge * ENVIRONMENTAL_PCT;
+    double vat = basic_charge * VAT_PCT;
+    double total_amount_due = basic_charge + environmental_charge + vat;
+
+    cout << "\n---------------------------------------------------------" << endl;
+    cout << "CONSUMPTION (cu. m.)           : " << consumption << endl;
+    cout << "BASIC CHARGE                   : Php " << basic_charge << endl;
+    cout << "ENVIRONMENTAL CHARGES (20%)    : Php " << environmental_charge << endl;
+    cout << "VAT (12%)                      : Php " << vat << endl;
+    cout << "TOTAL AMOUNT DUE               : Php " << total_amount_due << endl;
+    cout << "---------------------------------------------------------" << endl;
+}
+
+int main() {
     int total_transactions = 0;
     char process_another;
 
@@ -48,27 +70,9 @@ int main() {
         cout << "PREVIOUS METER READING         : ";
         cin >> previous_reading;
 
-        double consumption = present_reading - previous_reading;
-        
-        double charge_rate = RATE_COMMERCIAL;
-        if (account_type == 1) {
-            charge_rate = RATE_RESIDENTIAL;
-        }
-        
-        double basic_charge = consumption * charge_rate;
-        double environmental_charge = basic_charge * ENVIRONMENTAL_PCT;
-        double vat = basic_charge * VAT_PCT;
-        double total_amount_due = basic_charge + environmental_charge + vat;
+        calculateBill(account_type, present_reading, previous_reading);
 
         total_transactions++; 
-
-        cout << "\n---------------------------------------------------------" << endl;
-        cout << "CONSUMPTION (cu. m.)           : " << consumption << endl;
-        cout << "BASIC CHARGE                   : Php " << basic_charge << endl;
-        cout << "ENVIRONMENTAL CHARGES (20%)    : Php " << environmental_charge << endl;
-        cout << "VAT (12%)                      : Php " << vat << endl;
-        cout << "TOTAL AMOUNT DUE               : Php " << total_amount_due << endl;
-        cout << "---------------------------------------------------------" << endl;
 
         cout << "PROCESS ANOTHER? (Y/N)         : ";
         cin >> process_another;
