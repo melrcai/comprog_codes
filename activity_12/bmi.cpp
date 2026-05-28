@@ -6,7 +6,7 @@ using std::endl;
 using std::fixed;
 using std::setprecision;
 
-void conversion(double &pounds, double &feet, double &inches, double &BMI);
+void conversion(double pounds, double feet, double inches, double &BMI);
 
 int main() {
 
@@ -41,7 +41,7 @@ int main() {
 }
 
 
-void conversion(double &pounds, double &feet, double &inches, double &BMI) {
+void conversion(double pounds, double feet, double inches, double &BMI) {
 
   double massInKilo;
   double heightInMeters;
