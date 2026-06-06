@@ -13,12 +13,13 @@ public:
         string orders[6] = {"PORK SIOMAI", "BEEF SIOMAI", "SHRIMP SIOMAI", "COKE", "ROYAL", "SPRITE"};
         double prices[6] = {20.00, 25.00, 30.00, 20.00, 20.00, 20.00};
         int quantities[6] = {0}; 
+        double currentOrderTotal;
         double totalBill = 0;
         char choice = 'y'; 
         double amount;
 
         while (choice == 'y' || choice == 'Y') {
-            double currentOrderTotal = 0;
+            currentOrderTotal = 0;
             
             system("cls");
             cout << "SIOMAI NI MEL\n";
@@ -45,9 +46,11 @@ public:
                     cout << orders[i] << "\t\t\t" << quantities[i] << "\t\t" << amount << endl;
                 }
             }
+
+            cout << "TOTAL:\t\t\t\t\t\t" << currentOrderTotal << endl;
             totalBill += currentOrderTotal;
+
             cout << "***************************************************************\n";
-            cout << "TOTAL\t\t\t\t\t\t" << totalBill << endl;
             cout << "THANKYOU. COME AGAIN." << endl << endl;
             
             cout << "Do you want to order again? (y/n): ";
